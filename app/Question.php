@@ -15,6 +15,16 @@ class Question extends Model
         $this->attributes['slug'] = Str::slug($value, '-');
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+   /* public function getAttributeValue($key)
+    {
+        $this->attributes['slug'] = $key;
+    }*/
+
     public function user(){
         return $this->belongsTo(User::class);
     }
