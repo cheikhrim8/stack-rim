@@ -14,7 +14,10 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::latest()->paginate(5);
+        return view('questions.index' , [
+            'questions' => $questions
+        ]);
     }
 
     /**
@@ -63,9 +66,9 @@ class QuestionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Question $question
+     * @return void
      */
     public function update(Request $request, Question $question)
     {
