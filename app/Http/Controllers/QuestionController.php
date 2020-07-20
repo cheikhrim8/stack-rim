@@ -27,7 +27,10 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        $questions = new Question();
+        return view('questions.create' , [
+            'questions' => $questions
+        ]);
     }
 
     /**
@@ -38,7 +41,11 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request , [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+        dd($request->all());
     }
 
     /**
