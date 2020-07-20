@@ -14,6 +14,7 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        @include('layouts.alerts._messages')
                         @foreach($questions as $question)
                             <div class="media">
 
